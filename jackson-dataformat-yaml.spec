@@ -1,17 +1,14 @@
 Name:          jackson-dataformat-yaml
 Version:       2.4.2
-Release:       1%{?dist}
+Release:       1.1
+Group:		Development/Java
 Summary:       Jackson module to add YAML back-end (parser/generator adapters)
 License:       ASL 2.0
 URL:           http://wiki.fasterxml.com/JacksonExtensionYAML
 Source0:       https://github.com/FasterXML/jackson-dataformat-yaml/archive/%{name}-%{version}.tar.gz
 Source1:       http://www.apache.org/licenses/LICENSE-2.0.txt
 BuildRequires: mvn(com.fasterxml.jackson.core:jackson-core)
-%if %{?fedora} > 20
 BuildRequires: mvn(com.fasterxml.jackson:jackson-parent:pom:)
-%else
-BuildRequires: mvn(com.fasterxml.jackson:jackson-parent)
-%endif
 BuildRequires: mvn(org.yaml:snakeyaml)
 # Test deps
 BuildRequires: mvn(com.fasterxml.jackson.core:jackson-annotations)
