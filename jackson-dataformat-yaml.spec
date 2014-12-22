@@ -1,3 +1,4 @@
+%{?_javapackages_macros:%_javapackages_macros}
 Name:          jackson-dataformat-yaml
 Version:       2.4.2
 Release:       1.1
