@@ -1,7 +1,7 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:          jackson-dataformat-yaml
 Version:       2.4.2
-Release:       1.2
+Release:       1.3
 Group:		Development/Java
 Summary:       Jackson module to add YAML back-end (parser/generator adapters)
 License:       ASL 2.0
