@@ -5,7 +5,7 @@ Release:       1.3
 Group:		Development/Java
 Summary:       Jackson module to add YAML back-end (parser/generator adapters)
 License:       ASL 2.0
-URL:           http://wiki.fasterxml.com/JacksonExtensionYAML
+URL:           https://wiki.fasterxml.com/JacksonExtensionYAML
 Source0:       https://github.com/FasterXML/jackson-dataformat-yaml/archive/%{name}-%{version}.tar.gz
 Source1:       http://www.apache.org/licenses/LICENSE-2.0.txt
 BuildRequires: mvn(com.fasterxml.jackson.core:jackson-core)
