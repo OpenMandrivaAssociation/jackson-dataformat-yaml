@@ -9,6 +9,11 @@ Source0:	https://github.com/FasterXML/jackson-dataformats-text/archive/refs/tags
 
 BuildArch:	noarch
 BuildRequires:	python
+# databind's published POM parents are not Requires of that RPM.
+BuildRequires:	mvn(com.fasterxml.jackson:jackson-base:pom::)
+BuildRequires:	mvn(com.fasterxml.jackson:jackson-bom:pom::)
+BuildRequires:	mvn(com.fasterxml.jackson:jackson-parent:pom::)
+BuildRequires:	mvn(com.fasterxml:oss-parent:pom::)
 BuildRequires:	mvn(com.fasterxml.jackson.core:jackson-databind)
 BuildRequires:	jackson-databind >= 2.21.8
 BuildRequires:	jackson-core >= 2.21.8
@@ -106,6 +111,21 @@ for dep in root.iter():
         dep.append(ver)
 if not all(found.values()):
     raise SystemExit("dependency missing " + str(found))
+# The text parent is gone, so the compiler no longer inherits 1.8.
+props = None
+for child in list(root):
+    if local(child.tag) == "properties":
+        props = child
+if props is None:
+    props = ET.Element(tag + "properties")
+    root.append(props)
+for name, value in (
+    ("maven.compiler.source", "1.8"),
+    ("maven.compiler.target", "1.8"),
+):
+    node = ET.Element(tag + name)
+    node.text = value
+    props.append(node)
 plugins = None
 for child in root:
     if local(child.tag) != "build":
