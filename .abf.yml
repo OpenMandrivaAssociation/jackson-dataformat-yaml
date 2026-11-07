@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   jackson-dataformat-yaml-2.4.2.tar.gz: b8cedaedc4f38473ffd5d682204cc99cacf04487
+sources:
+  jackson-dataformats-text-2.21.8.tar.gz: 5f52c9b3060d2392bdd9b3d45c03ea2b77656f7b
