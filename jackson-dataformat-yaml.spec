@@ -1,5 +1,5 @@
 Name:		jackson-dataformat-yaml
-Version:	2.21.8
+Version:	2.23.0
 Release:	1
 Summary:	YAML backend for Jackson
 Group:		Development/Java
@@ -15,9 +15,12 @@ BuildRequires:	mvn(com.fasterxml.jackson:jackson-bom:pom::)
 BuildRequires:	mvn(com.fasterxml.jackson:jackson-parent:pom::)
 BuildRequires:	mvn(com.fasterxml:oss-parent:pom::)
 BuildRequires:	mvn(com.fasterxml.jackson.core:jackson-databind)
-BuildRequires:	jackson-databind >= 2.21.8
-BuildRequires:	jackson-core >= 2.21.8
-BuildRequires:	jackson-annotations >= 2.21-2
+BuildRequires:	jackson-databind >= 2.23.0
+BuildRequires:	jackson-core >= 2.23.0
+BuildRequires:	jackson-annotations >= 2.23
+BuildRequires:	jackson-bom >= 2.23.0
+BuildRequires:	jackson-parent >= 2.23
+BuildRequires:	fasterxml-oss-parent >= 81
 BuildRequires:	mvn(org.yaml:snakeyaml)
 BuildRequires:	snakeyaml >= 2.7-2
 # Literal, so the first rpmbuild -bs records them before sysjar is installed.
@@ -28,8 +31,11 @@ BuildSystem:	maven
 Obsoletes:	%{name}-javadoc < %{version}
 
 %description
-Reads and writes YAML through Jackson. 2.21.8 matches databind and
-uses the system SnakeYAML jar. The Java module is
+Reads and writes YAML through Jackson. 2.23.0 matches databind
+2.23.0 and uses the system SnakeYAML jar. It rejects invalid
+UTF-8, limits document length, quotes YAML 1.1 number forms when
+asked to quote numbers as strings, and constrains nested merge
+keys. The Java module is
 com.fasterxml.jackson.dataformat.yaml. Tests are skipped.
 
 %prep
